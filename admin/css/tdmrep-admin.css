@@ -1,0 +1,78 @@
+/* Style général pour le formulaire */
+body.toplevel_page_tdmrep #TB_ajaxContent #tdmrep-policy-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* Style pour les cellules de table dans le formulaire */
+body.toplevel_page_tdmrep #TB_ajaxContent .form-table th,
+body.toplevel_page_tdmrep #TB_ajaxContent .form-table td {
+    padding: 5px;
+    border: 1px solid var(--e-a-border-color-bold);
+}
+
+/* Style pour les en-têtes de table dans le formulaire */
+body.toplevel_page_tdmrep #TB_ajaxContent .form-table th {
+    background-color: var(--e-a-bg-active);
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Style pour les champs de saisie et les sélections dans le formulaire */
+body.toplevel_page_tdmrep #TB_ajaxContent .form-table td input,
+body.toplevel_page_tdmrep #TB_ajaxContent .form-table td select {
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+/* Style pour les champs de saisie et les sélections lorsqu'ils sont focalisés */
+body.toplevel_page_tdmrep #TB_ajaxContent .form-table td input:focus,
+body.toplevel_page_tdmrep #TB_ajaxContent .form-table td select:focus {
+    border-color: var(--e-context-primary-color);;
+    box-shadow: 0 0 10px var(--e-context-primary-color);
+}
+
+/* Style pour les titres dans le formulaire */
+body.toplevel_page_tdmrep #TB_ajaxContent h3 {
+    margin-top: 30px;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body.toplevel_page_tdmrep .button.button-delete {
+	color: var(--e-a-color-danger);
+	border-color: var(--e-a-color-danger);
+	background: var(--e-a-bg-default);
+	vertical-align: top;
+}
+body.toplevel_page_tdmrep span.trash a {
+	color: var(--e-a-color-danger);
+}
+
+body.toplevel_page_tdmrep .button.button-delete:hover {
+	background: var(--e-a-bg-hover);
+	border-color: var(--e-context-error-color-dark);
+	color:  var(--e-context-error-color-dark);
+}
+
+body.toplevel_page_tdmrep #TB_ajaxContent .submit {
+	position: sticky;
+	bottom: -10px;
+	background: var(--e-a-bg-default);
+	padding: 8px 15px;
+	margin: 0 -15px;
+}
+body.toplevel_page_tdmrep #TB_ajaxContent .submit input{
+	width: 100%;
+}
+
+body.toplevel_page_tdmrep #TB_ajaxContent .invalid {
+    border: 2px solid var(--e-a-color-danger);
+}
+body.toplevel_page_tdmrep #TB_ajaxContent label.required::after {
+    content: ' *';
+    color: var(--e-a-color-danger);
+}
