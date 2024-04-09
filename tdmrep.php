@@ -41,22 +41,22 @@ define( 'TDMREP_VERSION', '1.0.0' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-tdmrep-activator.php
  */
-function activate_tdmrep() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-tdmrep-activator.php';
-	Tdmrep_Activator::activate();
+function tdmrep_activate() {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-tdmrep-activator.php';
+    Tdmrep_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-tdmrep-deactivator.php
  */
-function deactivate_tdmrep() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-tdmrep-deactivator.php';
-	Tdmrep_Deactivator::deactivate();
+function tdmrep_deactivate() {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-tdmrep-deactivator.php';
+    Tdmrep_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_tdmrep' );
-register_deactivation_hook( __FILE__, 'deactivate_tdmrep' );
+register_activation_hook( __FILE__, 'tdmrep_activate' );
+register_deactivation_hook( __FILE__, 'tdmrep_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -73,10 +73,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-tdmrep.php';
  *
  * @since    1.0.0
  */
-function run_tdmrep() {
-
+function tdmrep_run() {
 	$plugin = new Tdmrep();
 	$plugin->run();
-
 }
-run_tdmrep();
+tdmrep_run();

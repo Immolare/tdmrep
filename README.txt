@@ -1,44 +1,80 @@
 === TDMRep: TDM Reservation Protocol ===
 Contributors: Immolare
 Donate link: https://github.com/Immolare/tdmrep
-Tags: copyright, data, tdm, mining, content rights
+Tags: copyright, ai, googlebot, chatgpt, tdm
 Requires at least: 5.3
-Tested up to: 6.4
+Tested up to: 6.5
 Stable tag: 1.0.0
-License: GPLv2
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-TDMRep integrates the TDM Reservation Protocol on WordPress to facilitate access to text and data mining rights for online content.
+TDM Reservation Protocol. Control how bots and artificial intelligences (AIs) like ChatGPT, GoogleBot and Bard access your content.
 
 == Description ==
 
-TDMRep is a WordPress plugin that integrates the [TDM Reservation Protocol](https://www.w3.org/community/reports/tdmrep/CG-FINAL-tdmrep-20240202/), a simple and practical web protocol for expressing the reservation of rights related to text and data mining of lawfully accessible web content. TDM (Text and Data Mining) refers to the process of extracting valuable information from large sets of text and data.
+TDMRep is a user-friendly WordPress plugin that lets you control how robots and artificial intelligences (AIs) like ChatGPT and Bard access your content. It integrates with the [TDM Reservation Protocol](https://www.w3.org/community/reports/tdmrep/CG-FINAL-tdmrep-20240202/) to help you safeguard your copyright and promote innovation.
 
-The TDM Reservation Protocol helps to streamline the communication of TDM rights and licenses available for online copyrighted content, making it easier for publishers to express their TDM rights reservation and licensing policies in a standardized and machine-readable format.
+## Control Who Can Access Your Website Content with TDMRep
 
-### What is Text and Data Mining (TDM)?
+Think of all the effort you put into creating and organizing the content on your website. You want to share it with the world, but you also want to **control who can copy and use your work**.
 
-Text and data mining (TDM) is the process of automatically extracting information from large sets of text and data using software tools and techniques. TDM is used in a wide range of fields, including academic research, business intelligence, and data journalism, to discover new insights and knowledge.
+That's where TDMRep comes in! It's a simple WordPress plugin that lets you take charge of how robots and artificial intelligences (AIs) like ChatGPT and Bard access your content. It does this by integrating the TDM Reservation Protocol directly into your WordPress website.
 
-### Why Use TDM Reservation Protocol?
 
-The TDM Reservation Protocol is a technical solution to the constraints set by [Article 4 of the new European Directive on copyright and related rights in the Digital Single Market](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019L0790&from=EN). It provides a clear and unambiguous way for publishers to express their TDM rights and licensing policies, making it easier for TDM agents to discover and comply with those policies. This helps to reduce legal uncertainty and facilitate the development of TDM applications.
+## How Does TDMRep Work?
 
-In summary, TDMRep is a powerful and easy-to-use plugin that helps publishers and TDM agents communicate TDM rights and licenses in a standardized and machine-readable format. It supports the TDM Reservation Protocol, which is essential for anyone involved in text and data mining of online copyrighted content.
+Imagine TDMRep as a set of instructions for robots visiting your website. You can tell them exactly what you want them to do with your content, like:
 
-### TDM Reservation Protocol Techniques
+"Read my content, but don't copy it." This is useful for search engine robots that analyze your website to understand your content and rank it in search results.
+
+"Read and copy my content, but only for personal use." This is helpful for students doing research or creators looking for inspiration.
+
+"This content is private! Stay out!" This is useful for sensitive information you don't want shared publicly.
+
+## Why Use TDMRep?
+
+There are two main reasons why TDMRep is important:
+
+- **Protect Your Copyright:** By controlling access to your content, you prevent people from copying and using your work without permission.
+- **Fuel Innovation:** TDMRep lets responsible robots and AIs access your content in a controlled way. This can help drive research and development of new technologies.
+
+## Examples of How Bots Use TDMRep
+
+- **Googlebot:** This is the robot that crawls websites for Google Search. It uses TDMRep to understand your content and rank your website in search results.
+- **ChatGPT:** This AI can use TDMRep to learn from your content and create new text formats, poems, scripts, and more.
+- **Bard:** Google's AI can use TDMRep to translate your content, write blog posts, and answer your questions in an informative way.
+
+## Who can benefit from TDMRep?
+
+TDMRep can benefit a variety of users, including:
+
+- **Website owners:** TDMRep lets you control access to your content and protect your copyright.
+- **Content creators:** TDMRep lets you share your content with the world while controlling who can copy and use it.
+- **Robots and AIs:** TDMRep allows robots and AIs to access your content responsibly and use it to develop new technologies.
+- **Students and researchers:** TDMRep allows students and researchers to access your content for their research.
+- **General public:** TDMRep makes it easier for the general public to find information on your website.
+
+Here are some concrete examples:
+
+- A blogger can use TDMRep to allow robots to read their content and index it in search engines, while prohibiting the copying of their content without permission.
+- A music publisher can use TDMRep to allow music streaming services to stream their music, while retaining control of the copyright.
+- A university can use TDMRep to allow researchers to access its research data, while protecting the privacy of participants.
+
+In short, TDMRep is a valuable tool for anyone who wants to control access to their content and protect their copyright.
+
+## TDM Reservation Protocol Techniques
 
 TDMRep integrates 3 of the 4 complementary techniques offered by the TDM Reservation Protocol:
 
-#### TDM File on the Origin Server (.well-known/tdmrep.json): files, images, pages, posts, sets of urls
+### TDM File on the Origin Server (.well-known/tdmrep.json): files, images, pages, posts, sets of urls
 
 The TDM File on the Origin Server technique allows publishers to declare site-wide rights holders' choices in a machine-readable file hosted on the web server. TDMRep generates this file and provides an interface for publishers to manage their TDM reservation and licensing policies.
 
-#### TDM Header Field in HTTP Responses (.htaccess): files, images, pages, posts, sets of urls
+### TDM Header Field in HTTP Responses (.htaccess): files, images, pages, posts, sets of urls
 
 The TDM Header Field in HTTP Responses technique allows publishers to declare their TDM rights reservation and licensing policies in the HTTP header of the response to a GET or HEAD request. TDMRep integrates this technique by adding the necessary header fields to the HTTP responses generated by WordPress.
 
-#### TDM Metatags in page, posts or set of urls
+### TDM Metatags in page, posts or set of urls
 
 TDMRep also supports the use of meta tags to express TDM rights and licensing policies on individual pages and posts, providing a more granular level of control for publishers who want to specify different policies for different parts of their website.
 
@@ -52,7 +88,6 @@ The TDM Policy feature is integrated into the TDMRep plugin and includes the fol
 - Permissions
 
 With this feature, publishers can easily express their TDM policies, including the type of permission granted, any constraints on the type of usage, and any duties required of the TDM actor, such as the duty to contact the rightsholder before getting permission or the duty to compensate financially the rightsholder.
-
 
 == Installation ==
 
@@ -82,10 +117,20 @@ However, please note the following:
 
 == Frequently Asked Questions ==
 
-== Screenshots ==
+= What is Text and Data Mining (TDM)? =
+Text and data mining (TDM) is the process of automatically extracting information from large sets of text and data using software tools and techniques. TDM is used in a wide range of fields, including academic research, business intelligence and data journalism, to discover new insights and knowledge.
+
+= Why Use TDM Reservation Protocol? =
+
+The TDM Reservation Protocol is a technical solution to the constraints set by [Article 4 of the new European Directive on copyright and related rights in the Digital Single Market](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019L0790&from=EN). It provides a clear and unambiguous way for publishers to express their TDM rights and licensing policies, making it easier for TDM agents to discover and comply with those policies. This helps to reduce legal uncertainty and facilitate the development of TDM applications.
+
+== Screenshots =
+1. TDMRep admin dashboard
+2. Create a new Policy for a Resource(s) with Assigner and Permissions
+3. You can chose the render : .well-known/tdmrep.json - HTTP Headers - HTML metatags
 
 == Changelog ==
 
-1.0 - 2024-03-07
+1.0 - 2024-04-09
 ----------------------------------------------------------------------
 - Initial release

@@ -1,4 +1,6 @@
 <?php 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 if (empty($policies)) {
     echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('No policies found.', 'tdmrep') . '</p></div>';
     return;
@@ -37,7 +39,7 @@ if (empty($policies)) {
                     } 
                     else {
                         $uid = $policy->get_uid();
-                        $resource_url = home_url('wp-json/' . Tdmrep_Admin::POLICY_API_PREFIX . 'policies/' . esc_attr($uid));
+                        $resource_url = home_url('wp-json/' . Tdmrep_Admin::POLICY_API_PREFIX . '/policies/' . esc_attr($uid));
                         echo '<a target="_blank" title="'.esc_html__('Show', 'tdmrep').'" href="' . esc_url($resource_url) . '">' . esc_attr($uid) . '</a>';
                     }
                     ?>

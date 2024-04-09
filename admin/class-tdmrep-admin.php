@@ -14,7 +14,7 @@
  */
 class Tdmrep_Admin
 {
-    public const POLICY_API_PREFIX = 'tdmrep/v1/';
+    public const POLICY_API_PREFIX = 'tdmrep/v1';
 
     /**
      * The ID of this plugin.
@@ -124,7 +124,7 @@ class Tdmrep_Admin
      * 
      * The page title and menu title are 'TDMRep', the required capability to access the page is 'manage_options', 
      * the menu slug is 'tdmrep', the function to output the content of the page is 'admin_page', 
-     * the icon URL is 'dashicons-admin-site', and the position in the menu order is 6.
+     * the icon URL is 'dashicons-code-standards', and the position in the menu order is 6.
      */
     public function add_menu() {
         add_menu_page(
@@ -133,8 +133,8 @@ class Tdmrep_Admin
             'manage_options',
             'tdmrep',
             array( $this, 'admin_page' ),
-            'dashicons-admin-site',
-            6
+            'dashicons-code-standards',
+            20
         );
     }
 
@@ -145,11 +145,13 @@ class Tdmrep_Admin
         register_rest_route(self::POLICY_API_PREFIX, '/policies', array(
             'methods' => 'GET',
             'callback' => array($this, 'get_policies'),
+            'permission_callback' => '__return_true'
         ));
 
         register_rest_route(self::POLICY_API_PREFIX, '/policies/(?P<uid>[a-f0-9\-]+)', array(
             'methods' => 'GET',
             'callback' => array($this, 'get_policy_by_id'),
+            'permission_callback' => '__return_true'
         ));
     }
 
@@ -201,7 +203,7 @@ class Tdmrep_Admin
      */
     public function save_policy() {
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('You do not have sufficient permissions to access this page.'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'tdmrep'));
         }
 
         check_admin_referer('tdmrep_save_policy');
@@ -300,7 +302,8 @@ class Tdmrep_Admin
         $protocol = $protocol_data->get_protocol();
 
         // Check if nonce is set and valid
-        if (isset($_GET['_wpnonce']) && wp_verify_nonce($_GET['_wpnonce'], 'tdmrep_admin_page')) {
+        $nonce = isset($_GET['_wpnonce']) ? sanitize_text_field(wp_unslash($_GET['_wpnonce'])) : null;
+        if ($nonce && wp_verify_nonce($nonce, 'tdmrep_admin_page')) {
             $message = sanitize_text_field($_GET['message'] ?? null);
             if ($message === 'success') {
                 add_settings_error('tdmrep', 'tdmrep_message', __('Saved successfully', 'tdmrep'), 'updated');
@@ -319,24 +322,24 @@ class Tdmrep_Admin
      */
     public function get_policy_form(): void
     {
-        $nonce = sanitize_text_field($_POST['nonce']);
-        if (!wp_verify_nonce($nonce, 'get_policy_form')) {
-            wp_send_json_error('Invalid nonce', 403);
+        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : null;
+        if ($nonce && wp_verify_nonce($nonce, 'get_policy_form')) {
+            $policy_uid = sanitize_text_field($_POST['policy_uid'] ?? null);
+            $policy_data = $this->get_policy_data($policy_uid);
+
+            $assigner = $policy_data && $policy_data->get_assigner() ? $policy_data->get_assigner()->to_array_or_null() : null;
+            $permission = $policy_data && $policy_data->get_first_permission() ? $policy_data->get_first_permission()->to_array_or_null() : null;
+
+            $html = $this->generate_policy_form_html($policy_data);
+            
+            wp_send_json_success(array(
+                'html' => $html,
+                'assigner' => $assigner,
+                'permission' => $permission,
+            ));
         }
 
-        $policy_uid = sanitize_text_field($_POST['policy_uid'] ?? null);
-        $policy_data = $this->get_policy_data($policy_uid);
-
-        $assigner = $policy_data && $policy_data->get_assigner() ? $policy_data->get_assigner()->to_array_or_null() : null;
-        $permission = $policy_data && $policy_data->get_first_permission() ? $policy_data->get_first_permission()->to_array_or_null() : null;
-
-        $html = $this->generate_policy_form_html($policy_data);
-        
-        wp_send_json_success(array(
-            'html' => $html,
-            'assigner' => $assigner,
-            'permission' => $permission,
-        ));
+        wp_send_json_error('Invalid nonce', 403);
     }
 
     /**
@@ -373,7 +376,7 @@ class Tdmrep_Admin
     public function save_protocol(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('You do not have sufficient permissions to access this page.'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'tdmrep'));
         }
 
         check_admin_referer('tdmrep_save_protocol');
