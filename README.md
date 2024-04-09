@@ -2,6 +2,8 @@
 
 TDMRep integrates the TDM Reservation Protocol on WordPress to facilitate access to text and data mining rights for online content.
 
+https://wordpress.org/plugins/tdmrep
+
 ## Description
 
 TDMRep is a WordPress plugin that integrates the [TDM Reservation Protocol](https://www.w3.org/community/reports/tdmrep/CG-FINAL-tdmrep-20240202/), a simple and practical web protocol for expressing the reservation of rights related to text and data mining of lawfully accessible web content. TDM (Text and Data Mining) refers to the process of extracting valuable information from large sets of text and data.
