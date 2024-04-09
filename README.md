@@ -1,14 +1,8 @@
 # TDMRep: TDM Reservation Protocol for WordPress
-Contributors: Immolare
-Donate link: https://github.com/Immolare/tdmrep
-Tags: copyright, data, tdm, mining, content rights
-Requires at least: 5.3
-Tested up to: 6.4
-Stable tag: 1.0.0
-License: GPLv2
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 TDMRep integrates the TDM Reservation Protocol on WordPress to facilitate access to text and data mining rights for online content.
+
+https://wordpress.org/plugins/tdmrep
 
 ## Description
 
@@ -79,3 +73,15 @@ However, please note the following:
 
 - The user must have administration rights to install and activate the plugin.
 - If using the generation by htaccess or .well-known, make sure that these files/directories have write permissions on the server.
+
+## Make a Donation to Support This Plugin's Development
+
+This plugin is free and made available to the Wordpress community. To allow me to effectively maintain this plugin, feel free to make a donation. To be credited as a donator, you can email me at **contact@pierrevieville.fr**.
+- **PAYPAL**: [Donate via PayPal](https://www.paypal.me/pierrevieville)
+- **BTC**: 3KtmAMgtkusp1a7UCtThQF4DW2uaeHQsuF
+- **ETH**: 0x30d2ec629a16fb035d19e5c0e3e06bdf75ee562a
+- **LTC**: ltc1q2r3wht2mz4m97yw3mxq823rkgp82e8uz09d6dr
+
+## Donators
+
+/* Be the first to appear here */
