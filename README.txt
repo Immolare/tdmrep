@@ -1,14 +1,14 @@
 === TDMRep: TDM Reservation Protocol ===
 Contributors: Immolare
 Donate link: https://github.com/Immolare/tdmrep
-Tags: copyright, ai, googlebot, chatgpt, tdm
+Tags: copyright, ai, google, chatgpt, tdm
 Requires at least: 5.3
 Tested up to: 6.5
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-TDM Reservation Protocol. Control how bots and artificial intelligences (AIs) like ChatGPT, GoogleBot and Bard access your content.
+TDM Reservation Protocol. Control how bots and artificial intelligences like ChatGPT, GoogleBot and Bard access your content.
 
 == Description ==
 
@@ -18,7 +18,7 @@ TDMRep is a user-friendly WordPress plugin that lets you control how robots and 
 
 Think of all the effort you put into creating and organizing the content on your website. You want to share it with the world, but you also want to **control who can copy and use your work**.
 
-That's where TDMRep comes in! It's a simple WordPress plugin that lets you take charge of how robots and artificial intelligences (AIs) like ChatGPT and Bard access your content. It does this by integrating the TDM Reservation Protocol directly into your WordPress website.
+That's where TDMRep comes in!
 
 
 ## How Does TDMRep Work?
@@ -131,6 +131,10 @@ The TDM Reservation Protocol is a technical solution to the constraints set by [
 
 == Changelog ==
 
-1.0 - 2024-04-09
+1.0.1 - 2024-04-18
+----------------------------------------------------------------------
+- Add legal text example
+
+1.0.0 - 2024-04-09
 ----------------------------------------------------------------------
 - Initial release
