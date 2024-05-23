@@ -19,7 +19,7 @@
         <h2><?php esc_html_e('Your Policy', 'tdmrep'); ?></h2>
         <p>
             <?php echo esc_html_e('If you use .well-known method, you can check your generated policy right here :', 'tdmrep'); ?>
-            <a title="TDMREP.json" target="_blank" href="<?php echo site_url(). '/wp-content/.well-known/tdmrep.json'; ?>">tdmrep.json</a>
+            <a title="TDMREP.json" target="_blank" href="<?php echo site_url(). '/.well-known/tdmrep.json'; ?>">tdmrep.json</a>
         </p>
 
         <p>

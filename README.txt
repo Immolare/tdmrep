@@ -1,10 +1,10 @@
 === TDMRep: TDM Reservation Protocol ===
 Contributors: Immolare
 Donate link: https://github.com/Immolare/tdmrep
-Tags: copyright, ai, google, chatgpt, tdm
+Tags: copyright, protocol, data mining, ai, robots, chatgpt, data, bard, google, author, opt-out, reservation
 Requires at least: 5.3
 Tested up to: 6.5
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -130,6 +130,9 @@ The TDM Reservation Protocol is a technical solution to the constraints set by [
 3. You can chose the render : .well-known/tdmrep.json - HTTP Headers - HTML metatags
 
 == Changelog ==
+1.0.2 - 2024-04-18
+----------------------------------------------------------------------
+- .well-known is generated at website root directory
 
 1.0.1 - 2024-04-18
 ----------------------------------------------------------------------

@@ -40,9 +40,36 @@ class Tdmrep_Protocol
 
     public function add_well_known_rules(): bool
     {
-        $well_known_dir = trailingslashit(WP_CONTENT_DIR) . '.well-known';
+        $well_known_dir = trailingslashit(ABSPATH) . '.well-known';
         if (!file_exists($well_known_dir)) {
             wp_mkdir_p($well_known_dir);
+        }
+
+        // Use WP_Filesystem instead of file_put_contents
+        global $wp_filesystem;
+        if (empty($wp_filesystem)) {
+            require_once(ABSPATH . '/wp-admin/includes/file.php');
+            WP_Filesystem();
+        }
+
+        // Créer le fichier .htaccess dans le dossier .well-known pour Apache
+        $htaccess_file = $well_known_dir . '/.htaccess';
+        if (!file_exists($htaccess_file)) {
+            $htaccess_content = "Options -Indexes\nRewriteEngine On\nRewriteCond %{REQUEST_FILENAME} !-f\nRewriteRule ^ - [F]";
+            if (!$wp_filesystem->put_contents($htaccess_file, $htaccess_content)) {
+                error_log("Failed to write to $htaccess_file");
+                return false;
+            }
+        }
+
+        // Créer le fichier index.php dans le dossier .well-known pour rediriger les requêtes non autorisées
+        $index_file = $well_known_dir . '/index.php';
+        if (!file_exists($index_file)) {
+            $index_content = "<?php\nheader('HTTP/1.0 403 Forbidden');\nexit;";
+            if (!$wp_filesystem->put_contents($index_file, $index_content)) {
+                error_log("Failed to write to $index_file");
+                return false;
+            }
         }
 
         $file = $well_known_dir . '/' . self::FILENAME;
@@ -53,12 +80,6 @@ class Tdmrep_Protocol
         });
 
         $content = wp_json_encode($policies, JSON_PRETTY_PRINT);
-        // Use WP_Filesystem instead of file_put_contents
-        global $wp_filesystem;
-        if (empty($wp_filesystem)) {
-            require_once(ABSPATH . '/wp-admin/includes/file.php');
-            WP_Filesystem();
-        }
 
         if (!$wp_filesystem->put_contents($file, $content)) {
             error_log("Failed to write to $file");
